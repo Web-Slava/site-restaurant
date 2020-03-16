@@ -1,0 +1,569 @@
+$montserrat: 'Montserrat', sans-serif;
+
+@mixin title{
+    font-family: $montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1.4em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #222222;
+    margin-bottom: 10px;
+}
+
+@mixin about-restaurant-text{
+    font-family: $montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 11px;
+    line-height: 135%;
+    color: #616161;
+}
+
+@mixin logo-text {
+    font-family: $montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 1.2em;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+body, body *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+.container{
+    max-width: 780px;
+    margin: 0 auto;
+    @media (max-width: 780px){
+        max-width: 640px;
+    }
+}
+
+
+
+.first-screen{
+    width: 100%;
+    height: 100vh;
+    padding: 0 30px;
+    margin-bottom: 80px;
+    .header{
+        width: 85%;
+        height: 18vh;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            width: 14%;
+        }
+        .logo img{
+            width: 100%;
+        }
+        .menu{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &__link{
+                font-family: $montserrat;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 11px;
+                line-height: 1.2em;
+                text-transform: uppercase;
+                color: #000;
+                &:hover{
+                    color: #D1A954;
+                }
+            }
+            &__link.main-link{
+                border: 1px solid rgba(209, 169, 84, 0.9);
+                padding: 6px;
+            }
+            &__link.color-gold{
+                color: #D1A954;
+            }
+            &__link.color-gold.bold{
+                font-weight: 700;
+            }
+        }
+        .burger-menu{
+            width: 35px;
+            height: 23px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            &__line{
+                width: 100%;
+                border: 1px solid #000;
+            }
+        }
+    }
+    .main{
+        width: 100%;
+        height: 70vh;
+        .main-item{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            margin-bottom: 40px;
+            &__pic{
+               flex-basis: 32%; 
+               position: relative;
+               transition: .2s;   
+               .main-item__discription{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: rgba(209, 169, 84, 0.9);
+                    padding: 10px;
+                    .main-item__text{
+                        border: 1px solid rgba(255, 255, 255, 0.5);
+                        padding: 10px;
+                        .main-item__title{
+                            font-family: $montserrat;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 21px;
+                            line-height: 1.3em;
+                            text-align: center;
+                            text-transform: uppercase;            
+                            color: #FFFFFF;
+                            margin-bottom: 7px;
+                        }
+                        .main-item__subtitle{
+                            font-family: $montserrat;
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 11px;
+                            line-height: 135%;
+                            text-align: center;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+                .main-item__link{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+            &__pic:hover{
+                transform: scale(1.02);
+            }
+            &__pic img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            } 
+        }
+        .slider-controls{
+            width: 25%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .slider-controls__prev{
+                width: 12px;
+                height: 12px;
+                border-left: 1px solid #000;
+                border-bottom: 1px solid #000;
+                transform: rotate(45deg);
+                cursor: pointer;
+            }
+            .slider-controls__progress{
+                width: 80%;
+                height: 2px;
+                background-color: rgba(0, 0, 0, 0.3);
+                display: flex;
+                .slider-controls__item{
+                    width: calc(100% / 6);
+                    height: 2px;
+                }
+            }
+            .slider-controls__next{
+                width: 12px;
+                height: 12px;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+                transform: rotate(-45deg);
+                cursor: pointer;
+            }
+            .slider-controls__item_active{
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+        }
+    }
+}
+
+.about-restaurant{
+    margin-bottom: 80px;
+    padding-bottom: 40px;
+    background: linear-gradient(to bottom, #ffffff 37%, #F9F7F7 37%, #F9F7F7 63%);
+    .container{
+        .title{
+            text-align: center;
+            margin-bottom: 20px;
+            .title-text{
+                @include title;
+            }
+            .title__logo{
+                text-align: center;
+                &_text{
+                    @include logo-text;
+                }
+            }
+        }
+        .about-restaurant__video{
+            position: relative;
+            margin-bottom: 50px;
+            & img{
+                width: 100%;
+            }
+            .play-button{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background: none;
+                border: 0;
+                transform: translateX(-50%) translateY(-50%);
+                cursor: pointer;
+            }
+        }
+        .about-restaurant__content{
+            display: flex;
+            justify-content: space-between;
+            .about-restaurant__discription{
+                flex-basis: 35%;
+                &_text{
+                    @include about-restaurant-text;
+                }
+                .logo-center{
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+            .about-restaurant__info{
+                flex-basis: 50%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .about-restaurant__item{
+                    flex-basis: 47%;
+                    &_title{
+                        font-family: $montserrat;
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 13px;
+                        line-height: 1.2em;
+                        letter-spacing: 0.05em;
+                        text-transform: uppercase;
+                        color: #000000;
+                        margin-bottom: 10px;
+                    }
+                    .item-area{
+                        padding-left: 35px;
+                        background: url(../images/about-restaurant/logo-mini.png) no-repeat left bottom;
+                        background-size: contain;
+                    }
+                    .item-interior{
+                        padding-left: 40px;
+                        background: url(../images/about-restaurant/item2.png) no-repeat left bottom;
+                        background-size: contain;
+                    }
+                    .item-tehnologies{
+                        padding-left: 30px;
+                        background: url(../images/about-restaurant/item3.png) no-repeat left bottom;
+                        background-size: contain;
+                    }
+                    .item-equipment{
+                        padding-left: 30px;
+                        background: url(../images/about-restaurant/item4.png) no-repeat left bottom;
+                        background-size: contain;
+                    }
+                    &_text{
+                        @include about-restaurant-text;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gallery{
+    margin-bottom: 100px;
+    .container{
+        .gallery__content{
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto;
+            grid-template-areas: "item-1 item-1 item-1 item-2 item-2 item-2 item-2 item-2 item-3 item-3 item-3 item-3"
+                                 "item-4 item-4 item-4 item-4 item-4 item-4 item-4 item-5 item-5 item-5 item-5 item-5"
+                                 "item-4 item-4 item-4 item-4 item-4 item-4 item-4 item-6 item-6 item-6 item-6 item-6";
+            column-gap: 15px;
+            row-gap: 15px;
+            .gallery__item-1{
+                grid-area: item-1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .gallery__title{
+                    text-align: center;
+                    .title-text{
+                        font-family: $montserrat;
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 21px;
+                        line-height: 1.35em;
+                        text-transform: uppercase;
+                        color: #000000;
+                        margin-bottom: 10px;
+                    }
+                    .title__logo{
+                        text-align: center;
+                        &_text{
+                            @include logo-text;
+                        }
+                    }
+                }
+            }
+            .gallery__item-2{
+                grid-area: item-2;
+            }
+            .gallery__item-3{
+                grid-area: item-3;
+            }
+            .gallery__item-4{
+                grid-area: item-4;
+            }
+            .gallery__item-5{
+                grid-area: item-5;
+            }
+            .gallery__item-6{
+                grid-area: item-6;
+            }
+            .gallery__item{
+                width: 100%;
+                height: 100%;
+            }
+            .gallery__pic{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+}
+
+.about-us{
+    padding: 90px 0;
+    background: url(../images/about-us/back.jpg) no-repeat;
+    background-size: cover;
+    margin-bottom: 100px;
+    &__content{
+        max-width: 550px;
+        margin: 0 auto;
+        .about-us__title{
+            margin-bottom: 50px;
+            text-align: center;
+            .title-text{
+               @include title; 
+            }
+            .white-text{
+                color: #fff;
+            }
+        }
+        .about-us__button{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            &_style{
+                font-family: $montserrat;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 12px;
+                line-height: 1.4em;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: #000000;
+                padding: 1em 3em;
+                cursor: pointer;
+                border: 0;
+            }
+        }
+    }
+}
+
+.contacts{
+    margin-bottom: 90px;
+    &>.container{
+        &>.contacts__wrapper{
+            display: flex;
+            justify-content: space-between;
+            .contacts__info{
+                flex: 0 1 49%;
+                .contacts__title{
+                    @include title;
+                    margin-bottom: 15px;
+                }
+                .contacts__subtitle{
+                    font-family: $montserrat;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 11px;
+                    line-height: 1.35em;
+                    color: #616161;
+                    margin-bottom: 30px;
+                }
+                .contacts__information{
+                    display: flex;
+                    justify-content: space-between;
+                    .information-item{
+                        flex: 0 1 48%;
+                        .title-info{
+                            font-family: $montserrat;
+                            font-style: normal;
+                            font-weight: 300;
+                            font-size: 14px;
+                            line-height: 1.35em;
+                            letter-spacing: 0.05em;
+                            text-transform: uppercase; 
+                            color: #000000;
+                            margin-bottom: 15px;
+                        }
+                        .list-info{
+                            .item-info{
+                                & a{
+                                    font-family: $montserrat;
+                                    font-style: normal;
+                                    font-weight: 300;
+                                    font-size: 11px;          
+                                    color: #000000;
+                                    &:hover{
+                                        opacity: .6;
+                                    }
+                                }
+                                .item-info__style{
+                                    letter-spacing: -0.02em;
+                                }
+                            }
+                            .item-info + .item-info{
+                                margin-top: 20px;
+                            }
+                            .vector1{
+                                padding-left: 32px;
+                                background: url(../images/contacts/vector1.png) no-repeat left center;
+                            }
+                            .vector2{
+                                padding-left: 32px;
+                                background: url(../images/contacts/vector2.png) no-repeat left center;
+                                line-height: 188%;
+                            }
+                            .vector3{
+                                padding-left: 32px;
+                                background: url(../images/contacts/vector3.png) no-repeat left center ;
+                            }
+                        }
+                    }
+                }
+            }
+            .contacts__form{
+                flex: 0 1 49%;
+                &>.form{
+                    input[type="text"]{
+                        width: 100%;
+                        margin-bottom: 20px;
+                        padding: 10px 0;
+                        border: 0;
+                        border-bottom: .5px solid #D0D0D0;
+                        font-family: $montserrat;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 13px;
+                        line-height: 1.35em;     
+                        color: #333;
+                        &:focus{
+                            outline: none;
+                        }
+                        &::placeholder{
+                            font-family: $montserrat;
+                            font-style: normal;
+                            font-weight: 300;
+                            font-size: 12px;
+                            line-height: 1.35em;     
+                            color: #616161;
+                        }
+                    }
+                    textarea{
+                        width: 100%;
+                        height: 140px;
+                        padding: 10px;
+                        border: 0.5px solid #D0D0D0;
+                        margin-bottom: 20px;
+                        resize: none;
+                        font-family: $montserrat;
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 13px;
+                        line-height: 1.35em;     
+                        color: #333;
+                        &:focus{
+                            outline: none;
+                        }   
+                        &::placeholder{
+                            font-family: $montserrat;
+                            font-style: normal;
+                            font-weight: 300;
+                            font-size: 12px;
+                            line-height: 1.35em;     
+                            color: #616161;
+                        }
+                    }
+                    input[type="submit"]{
+                        font-family: $montserrat;
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 13px;
+                        line-height: 1.35em;
+                        letter-spacing: 0.05em;
+                        text-transform: uppercase;
+                        color: #FFFFFF;
+                        padding: .8em 2em;
+                        background-color: #D1A954;
+                        border: 0;
+                        cursor: pointer;
+                        &:focus{
+                            outline: none;
+                        }
+                        &:hover{
+                            background-color: lighten(#D1A954, 5%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
